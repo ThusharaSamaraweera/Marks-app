@@ -1,0 +1,26 @@
+.create-teams {
+  border: solid red 2px;
+
+  .team {
+    max-width: 200px;
+    min-width: 200px;
+    border: solid green 2px;
+
+    .delete-icon {
+      padding-right: 0px;
+      cursor: pointer;
+    }
+
+    .mark-box {
+      color: red;
+    }
+
+    .team-name {
+      padding-left: 2px;
+    }
+
+    .mark-update-row {
+      display: grid;
+    }
+  }
+}
