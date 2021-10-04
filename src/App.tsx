@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss'
-import MarksApp from "./Marks-app";
+import MarksApp from "./view/Marks-app";
 
 const App: React.FC = () => {
   return <MarksApp/>

@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import {Container, Row} from "react-bootstrap";
-import Title from "../src/Components/Title";
-import AddBoard from "./Components/AddBoard";
-import CreatedTeams from "./Components/CreatedTeams";
-import {ITeam} from "./Types/MarksTypes";
+import Title from "../Components/Title";
+import AddBoard from "../Components/AddBoard";
+import CreatedTeams from "../Components/CreatedTeams";
+import {ITeam} from "../Types/MarksTypes";
 
 const MarksApp: React.FC = () => {
   const allTeams:ITeam[] = [
@@ -14,34 +14,30 @@ const MarksApp: React.FC = () => {
   ]
 
   const [teams, setTeams] = useState<ITeam[]>(allTeams);
+  const [teamCount, setTeamCount] = useState<number>(teams.length);
 
-  const generateId = () => {
-    return Math.floor(Math.random()*100 + 1);
-  }
 
   const handleOnAddedTeam = (teamName:string) => {
-    const tempAllTeams:ITeam[] = allTeams.slice();
-    const Ids: number[] = teams.map(team => team.id)
-    let id: number = 0;
-    do{
-      id = generateId();
-    }while(!Ids.includes(id));
-
+    const tempAllTeams:ITeam[] = teams.slice();
+    let id: number = teamCount + 1;
+    setTeamCount(id)
     const newTeam:ITeam = {id:id, name:teamName, marks:0};
     tempAllTeams.push(newTeam);
-    setTeams(tempAllTeams)
+    setTeams(tempAllTeams);
+
   }
 
   const handleOnDelete = (id:number) => {
     const confirmation:boolean = window.confirm("Delete Team?");
     if(confirmation){
-      const tempAllTeams:ITeam[] = allTeams.slice();
+      const tempAllTeams:ITeam[] = teams.slice();
       setTeams(
         tempAllTeams.filter( (team) => 
           team.id !== id
         )
       );
     }
+    console.log('hi');
   }
 
   return (
@@ -50,8 +46,9 @@ const MarksApp: React.FC = () => {
       <Row xs={12} md={7} className='mt-2 mx-0'>
         <AddBoard onTeamAdd={handleOnAddedTeam}/>
       </Row>
-      <CreatedTeams teams={teams} setTeams={setTeams}
-              onDeleteTeam={handleOnDelete}
+      <CreatedTeams teams={teams} 
+                    setTeams={setTeams}
+                    onDeleteTeam={handleOnDelete}
       />
 
     </Container>
