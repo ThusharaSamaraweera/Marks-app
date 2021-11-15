@@ -38,7 +38,6 @@ const MarksApp: React.FC = () => {
         )
       );
     }
-    console.log('hi');
   }
 
   return (
@@ -49,7 +48,7 @@ const MarksApp: React.FC = () => {
           <AddBoard onTeamAdd={handleOnAddedTeam}/>
         </Col>
         <Col  xs={12} md={6}>
-          <RankTeams/>
+          <RankTeams teams={teams} />
         </Col>
 
       </Row>

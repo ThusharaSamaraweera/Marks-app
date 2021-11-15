@@ -14,7 +14,6 @@ type TeamProps = {
 
 const Team:React.FC<TeamProps> = (props) => {
   const [marks, setMarks] = useState<number | undefined>(undefined)
-
   const handleOnSub = () => {
     if(!marks){
       return;
@@ -45,7 +44,7 @@ const Team:React.FC<TeamProps> = (props) => {
         </Row>
 
         <Row className='mark-box mx-0 px-1'>
-          <h5>{props.team.marks}</h5>
+          <NumberFormat value={props.team.marks} displayType={'text'} thousandSeparator={true} prefix={'point : '} />
         </Row>
 
         <Row className='mark-update-row mx-0'>
@@ -56,13 +55,14 @@ const Team:React.FC<TeamProps> = (props) => {
                             className='form-control'
                             required
                             value={marks ? marks : 'no'}
-                            placeholder=""
+                            placeholder="enter ..."
                             onValueChange={(values) => {
                               setMarks(values.floatValue)
                               }
                             }
               />
             </Form.Group>
+            <div className='error' >error</div>
             <Button className='sub-btn float-left mb-3' onClick={handleOnSub}>SUB</Button>
             <Button className='add-btn float-right mb-3' onClick={handleOnAdd}>ADD</Button>
           </Form>
