@@ -69,7 +69,7 @@ const Team:React.FC<TeamProps> = (props) => {
                             }
               />
             </Form.Group>
-            { validated && <div className='error' >error</div>}
+            { validated && <div className='error'>Enter points</div>}
             <Button className='sub-btn float-left mb-3' onClick={handleOnSub}>SUB</Button>
             <Button className='add-btn float-right mb-3' onClick={handleOnAdd}>ADD</Button>
           </Form>
