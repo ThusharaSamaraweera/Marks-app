@@ -6,6 +6,19 @@
     min-width: 200px;
     border: solid green 2px;
 
+    .mark-update-row{
+      .mark-Inputs{
+        .form-group{
+          margin-bottom: 5px;
+        }
+        .error {
+          font-size: 0.8em;
+          color: red;
+          margin-bottom: 5px;
+        }
+      }
+    }
+
     .delete-icon {
       padding-right: 0px;
       cursor: pointer;

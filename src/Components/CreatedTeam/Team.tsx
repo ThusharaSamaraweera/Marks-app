@@ -14,19 +14,26 @@ type TeamProps = {
 
 const Team:React.FC<TeamProps> = (props) => {
   const [marks, setMarks] = useState<number | undefined>(undefined)
+  const [validated , setValidated] = useState<boolean>(false);
+
   const handleOnSub = () => {
+
     if(!marks){
+      setValidated(true);
       return;
     }
+    setValidated(false);
     props.onSubMarks(props.team.id, marks);
     setMarks(undefined)
   }
 
   const handleOnAdd = (event:any) => {
-    event.preventDefault();
     if(!marks){
+      setValidated(true);
       return;
     }
+
+    setValidated(false);
     props.onAddMarks(props.team.id, marks);
     setMarks(undefined);
   }
@@ -62,7 +69,7 @@ const Team:React.FC<TeamProps> = (props) => {
                             }
               />
             </Form.Group>
-            <div className='error' >error</div>
+            { validated && <div className='error' >error</div>}
             <Button className='sub-btn float-left mb-3' onClick={handleOnSub}>SUB</Button>
             <Button className='add-btn float-right mb-3' onClick={handleOnAdd}>ADD</Button>
           </Form>

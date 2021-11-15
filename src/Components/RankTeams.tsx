@@ -18,7 +18,7 @@ const RankTeams:React.FC<RankTeamsProps> = (props) => {
             return  <Col xs={12} md={12} className='team'>
                         <Row>
                             <Col xs={3} md={3}>
-                                {team.name}
+                                {index + 1} . {team.name}
                             </Col>
                             <Col xs={7} md={7}>
                                 <NumberFormat value={team.marks} displayType={'text'} thousandSeparator={true} prefix={'point : '} />                              
@@ -41,7 +41,7 @@ const RankTeams:React.FC<RankTeamsProps> = (props) => {
                 <Card.Header>
                     <Row>
                         <Col xs={6} md={6} >Point Board</Col> 
-                        <Col className="count" xs={{offset: 2, span: 4}} >Total team : {props.teams.length}</Col>
+                        <Col className="count" xs={{offset: 2, span: 4}} md={{offset: 1, span: 5}} >Total teams : {props.teams.length}</Col>
                     </Row>
                 </Card.Header>
                 <Card.Body>
