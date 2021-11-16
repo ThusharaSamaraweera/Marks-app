@@ -39,7 +39,7 @@ const Team:React.FC<TeamProps> = (props) => {
   }
 
   return (
-      <Col xs={12} sm={5} className='team mx-2 my-2 py-2 px-2'>
+      <Col xs={12} sm={2} className='team mx-2 my-2 py-2 px-2'>
 
         <Row xs={9} sm={8} className='mx-0 my-0'>
           <Col xs={8} sm={8} className='team-name'>

@@ -36,7 +36,7 @@ const RankTeams:React.FC<RankTeamsProps> = (props) => {
     }, [props.teams]);
 
     return (
-        <div className="ranking-team-div mt-2 p-3">
+        <div className="ranking-team-div mt-2">
             <Card border="primary">
                 <Card.Header>
                     <Row>

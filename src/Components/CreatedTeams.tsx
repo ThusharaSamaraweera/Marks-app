@@ -54,7 +54,7 @@ const CreatedTeams: React.FC<CreatedTeamsProps> = (props) => {
   }
 
   return (
-    <Row className='create-teams mx-0 my-3'>
+    <Row className='create-teams mx-0 mt-3 mb-0'>
       {renderTeams()}
     </Row>
   )

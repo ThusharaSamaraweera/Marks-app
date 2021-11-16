@@ -41,7 +41,7 @@ const MarksApp: React.FC = () => {
   }
 
   return (
-    <Container fluid>
+    <Container fluid className='mark-app'>
       <Title/>
       <Row xs={12} md={7} className='mt-2 mx-0'>
         <Col xs={12} md={6}>

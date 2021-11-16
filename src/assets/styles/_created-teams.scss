@@ -1,39 +1,46 @@
-.create-teams {
-  border: solid red 2px;
+.mark-app{
+  background-color: #edc487;
 
-  .team {
-    max-width: 200px;
-    min-width: 200px;
-    border: solid green 2px;
-
-    .mark-update-row{
-      .mark-Inputs{
-        .form-group{
-          margin-bottom: 5px;
-        }
-        .error {
-          font-size: 0.8em;
-          color: red;
-          margin-bottom: 5px;
+  .create-teams {
+    border: solid black 8px;
+    min-height: 55vh;
+      
+    .team {
+      max-height: 13em;
+      border: solid green 2px;
+      border-radius: 15px;
+      background-color: #ffa549;
+  
+      .mark-update-row{
+        .mark-Inputs{
+          .form-group{
+            margin-bottom: 5px;
+          }
+          .error {
+            font-size: 0.8em;
+            color: red;
+            margin-bottom: 5px;
+          }
         }
       }
-    }
-
-    .delete-icon {
-      padding-right: 0px;
-      cursor: pointer;
-    }
-
-    .mark-box {
-      color: red;
-    }
-
-    .team-name {
-      padding-left: 2px;
-    }
-
-    .mark-update-row {
-      display: grid;
+  
+      .delete-icon {
+        padding-right: 0px;
+        cursor: pointer;
+      }
+  
+      .mark-box {
+        color: red;
+      }
+  
+      .team-name {
+        padding-left: 2px;
+      }
+  
+      .mark-update-row {
+        display: grid;
+      }
     }
   }
 }
+
