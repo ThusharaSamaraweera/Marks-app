@@ -14,26 +14,32 @@ type TeamProps = {
 
 const Team:React.FC<TeamProps> = (props) => {
   const [marks, setMarks] = useState<number | undefined>(undefined)
+  const [validated , setValidated] = useState<boolean>(false);
 
   const handleOnSub = () => {
+
     if(!marks){
+      setValidated(true);
       return;
     }
+    setValidated(false);
     props.onSubMarks(props.team.id, marks);
     setMarks(undefined)
   }
 
   const handleOnAdd = (event:any) => {
-    event.preventDefault();
     if(!marks){
+      setValidated(true);
       return;
     }
+
+    setValidated(false);
     props.onAddMarks(props.team.id, marks);
     setMarks(undefined);
   }
 
   return (
-      <Col xs={12} sm={5} className='team mx-2 my-2 py-2 px-2'>
+      <Col xs={12} sm={2} className='team mx-2 my-2 py-2 px-2'>
 
         <Row xs={9} sm={8} className='mx-0 my-0'>
           <Col xs={8} sm={8} className='team-name'>
@@ -45,7 +51,7 @@ const Team:React.FC<TeamProps> = (props) => {
         </Row>
 
         <Row className='mark-box mx-0 px-1'>
-          <h5>{props.team.marks}</h5>
+          <NumberFormat value={props.team.marks} displayType={'text'} thousandSeparator={true} prefix={'point : '} />
         </Row>
 
         <Row className='mark-update-row mx-0'>
@@ -56,13 +62,14 @@ const Team:React.FC<TeamProps> = (props) => {
                             className='form-control'
                             required
                             value={marks ? marks : 'no'}
-                            placeholder=""
+                            placeholder="enter ..."
                             onValueChange={(values) => {
                               setMarks(values.floatValue)
                               }
                             }
               />
             </Form.Group>
+            { validated && <div className='error'>Enter points</div>}
             <Button className='sub-btn float-left mb-3' onClick={handleOnSub}>SUB</Button>
             <Button className='add-btn float-right mb-3' onClick={handleOnAdd}>ADD</Button>
           </Form>

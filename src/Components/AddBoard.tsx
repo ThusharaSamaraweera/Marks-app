@@ -10,9 +10,9 @@ const AddBoard:React.FC<AddBoardProps> = (props) => {
 
   const handleOnSubmit = (event:any) => {
     event.preventDefault();
-
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
+
       event.stopPropagation();
     }
 

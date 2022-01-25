@@ -1,9 +1,10 @@
 import React, {useState} from "react";
-import {Container, Row} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 import Title from "../Components/Title";
 import AddBoard from "../Components/AddBoard";
 import CreatedTeams from "../Components/CreatedTeams";
 import {ITeam} from "../Types/MarksTypes";
+import RankTeams from "../Components/RankTeams";
 
 const MarksApp: React.FC = () => {
   const allTeams:ITeam[] = [
@@ -37,14 +38,19 @@ const MarksApp: React.FC = () => {
         )
       );
     }
-    console.log('hi');
   }
 
   return (
-    <Container fluid>
+    <Container fluid className='mark-app'>
       <Title/>
       <Row xs={12} md={7} className='mt-2 mx-0'>
-        <AddBoard onTeamAdd={handleOnAddedTeam}/>
+        <Col xs={12} md={6}>
+          <AddBoard onTeamAdd={handleOnAddedTeam}/>
+        </Col>
+        <Col  xs={12} md={6}>
+          <RankTeams teams={teams} />
+        </Col>
+
       </Row>
       <CreatedTeams teams={teams} 
                     setTeams={setTeams}
